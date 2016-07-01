@@ -1,0 +1,36 @@
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-7.1
+    driver:
+      image_id: ami-a1863eb6
+      name: ec2
+      # aws_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+      # aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+      aws_ssh_key_id: cad_demo_east
+
+      #security_group_ids: ["sg-a78bf6c0", "sg-a58bf6c2" ]
+      region: us-east-1
+      availability_zone: us-east-1c
+      require_chef_omnibus: true
+      #subnet_id: subnet-28119003
+      instance_type: t2.micro
+      tags: {
+        Name: "cad-kitchen",
+        created-by: "test-kitchen"
+      }
+    transport:
+      username: centos
+      ssh_key: ~/.ssh/cad_demo_east.pem
+# Uncomment the following verifier to leverage Inspec instead of Busser (the
+# default verifier)
+verifier:
+  name: inspec
+  format: doc
+
+suites:
+  - name: default
+    run_list:
+      - recipe[base-web::default]
+    attributes:

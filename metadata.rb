@@ -1,0 +1,11 @@
+name 'base-web'
+maintainer 'The Authors'
+maintainer_email 'you@example.com'
+license 'all_rights'
+description 'Installs/Configures base-web'
+long_description 'Installs/Configures base-web'
+version '0.1.5'
+issues_url 'https://github.com/chef-cft/chef-demo'
+source_url 'https://github.com/chef-cft/chef-demo'
+
+depends 'yum'

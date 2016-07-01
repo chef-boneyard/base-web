@@ -1,0 +1,16 @@
+{
+  "version": "2",
+  "build_cookbook": {
+    "path": ".delivery/build-cookbook",
+    "name": "build-cookbook"
+  },
+  "delivery-truck": {
+   "publish": {
+     "chef_server": true,
+     "supermarket": "https://cad-supermarket"
+   }
+ },
+  "skip_phases": [],
+  "build_nodes": {},
+  "dependencies": []
+}
